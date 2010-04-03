@@ -12,8 +12,22 @@
 void *
 turno_jugador(void * param)
 {
-	long num=(long)param;
-	cartas[2]=10;
-	printf("nombre jugador %ld\ncarta[2]=%d\n",num,cartas[2]);
-	return NULL;
+  long me=(long)param;
+  while(!game_over){
+
+    pthread_mutex_lock(&mtx_jugadores[me]);
+    sleep(1);
+    if(!game_over){
+
+      printf("nombre jugador %ld\n",me);
+    }else{
+      break;
+     
+    }//if
+    pthread_mutex_unlock(&mtx_jugadores[SIGUIENTE]); //me #defined
+    
+  }//while
+
+
+  return NULL;
 }

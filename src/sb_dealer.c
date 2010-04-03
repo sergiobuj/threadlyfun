@@ -1,7 +1,7 @@
 /* @(#)sb_dealer.c
  */
 
-#include <pthread.h>
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -17,21 +17,21 @@ char mutex_error[]="Error al crear los mutex de la ronda\n";
 
 int main(int, char *[]);
 
+void init();
 void c_baraja(int []);
 void barajar_cartas(int [],int);
 void lock_mutex_ronda(int);
-
+void iniciar_juego(int);
+void poner_jugadores();
+void quitar_jugadores();
+void liberar_recursos();
 
 
 /*
  */
 int main(int argc, char * argv[])
 {
-
-  pthread_t * jugadores = NULL;
-  int num_jugadores=2, estado_hilo;
-  void * estado_join;
-  srand((unsigned)time(0));
+  init();
 
   if(argc > 1){
     num_jugadores = atoi(argv[1]);
@@ -56,47 +56,44 @@ int main(int argc, char * argv[])
   }
   mtx_jugadores=(pthread_mutex_t *)mtx_jugadores_ptr;
 
-  lock_mutex_ronda(num_jugadores);
+  iniciar_juego( arc4random()%num_jugadores  );
 
-  long i=0;
-  pthread_t *index;
-  for(index=jugadores ; index<&jugadores[num_jugadores] ; ++index){
-    //    fprintf(stdout,"%ld\n",++i);
+  int time_out=5;
+  while(--time_out) sleep(3);
+  game_over=1;
 
-    estado_hilo = pthread_create(index,NULL,turno_jugador,(void *)i++);
-    if(estado_hilo){
-      fprintf(stderr,"%s",crear_error);
-      free(jugadores);
-      free(mtx_jugadores);
-      exit(1);
-    }
-  }
-  
-  int join_index;
-  for(join_index=0 ; join_index<num_jugadores ; ++join_index){
-    pthread_join(jugadores[join_index],&estado_join);
-    fprintf(stdout,"Hilo terminado\n");
-  }
+  quitar_jugadores(num_jugadores);
 
-  realloc(jugadores,0); //cool free(jugadores);
-  free(mtx_jugadores);
+  liberar_recursos();
+
   return 0;
 }
 
 
+/*
+ */
+void
+init()
+{
+  jugadores = NULL;
+  num_jugadores = 2;
+  srand((unsigned)time(0));
+  game_over=0;
+
+}
 
 /*
  */
 void
 c_baraja(int cartas[])
 {
-	int j,i,k=0;
-	for( i=0; i<4*BARAJAS; ++i){
-		for( j=0; j<13; ++j){
-			cartas[k]=j;
-			k++;
-		}
-	}
+  int j,i,k=0;
+  for( i=0; i<4*BARAJAS; ++i){
+    for( j=0; j<13; ++j){
+      cartas[k]=j;
+      k++;
+    }
+  }
 }
 
 /*
@@ -104,11 +101,11 @@ c_baraja(int cartas[])
 void
 barajar_cartas(int cartas[],int num_cartas)
 {
-	int i,j;
-	for( i=num_cartas-1; i>0; --i){
-		j=(arc4random())%(i+1);
-		SWAP(cartas[i],cartas[j]);
-	}
+  int i,j;
+  for( i=num_cartas-1; i>0; --i){
+    j=(arc4random())%(i+1);
+    SWAP(cartas[i],cartas[j]);
+  }
 }
 
 
@@ -117,10 +114,64 @@ barajar_cartas(int cartas[],int num_cartas)
 void
 lock_mutex_ronda(int index)
 {
-	while(index){
-		--index;
-		pthread_mutex_init(&mtx_jugadores[index],NULL);
-		pthread_mutex_lock(&mtx_jugadores[index]);
-	}
+  while(index){
+    --index;
+    pthread_mutex_init(&mtx_jugadores[index],NULL);
+    pthread_mutex_lock(&mtx_jugadores[index]);
+  }
 }
 
+/*
+ */
+void
+iniciar_juego(int jugador)
+{
+  lock_mutex_ronda(num_jugadores);
+  c_baraja(cartas);
+  barajar_cartas(cartas , CARTAS  );
+  poner_jugadores();  
+  pthread_mutex_unlock(&mtx_jugadores[jugador] );
+}
+
+void
+poner_jugadores()
+{
+  int estado_hilo;
+  long i=0;
+  pthread_t *index;
+  for(index=jugadores ; index<&jugadores[num_jugadores] ; ++index){
+    estado_hilo = pthread_create(index,NULL,turno_jugador,(void *)i++);
+    if(estado_hilo){
+      fprintf(stderr,"%s",crear_error);
+      free(jugadores);
+      free(mtx_jugadores);
+      exit(1);
+    }
+  }
+
+}
+
+/*
+ */
+void quitar_jugadores(int index){
+  
+  while(index)
+    pthread_mutex_unlock(&mtx_jugadores[--index]);
+
+  void * estado_join;
+  int join_index;
+  for(join_index=0 ; join_index<num_jugadores ; ++join_index){
+    pthread_join(jugadores[join_index],&estado_join);
+    fprintf(stdout,"Hilo terminado\n");
+  }
+}
+
+
+/*
+ */
+void
+liberar_recursos()
+{
+  realloc(jugadores,0); //cool free(jugadores);
+  free(mtx_jugadores);
+}

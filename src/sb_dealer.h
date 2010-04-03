@@ -8,9 +8,11 @@
 #define CARTAS 52*BARAJAS
 #define SWAP(a,b)({(a)^=(b);(b)^=(a);(a)^=(b);})
 
+#include <pthread.h>
+pthread_t * jugadores;
 
 int cartas[ CARTAS ];
 int game_over;
-
+int num_jugadores;
 
 #endif /* _DEALER_H */
