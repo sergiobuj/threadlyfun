@@ -9,5 +9,4 @@
 pthread_mutex_t *mtx_jugadores;
 
 void * turno_jugador(void *);
-
 #endif /* _JUGADOR_H */
