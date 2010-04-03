@@ -15,6 +15,10 @@ char realloc_error[]="Error al crear espacio para los jugadores\n";
 char crear_error[]="Error al crear un jugador\n";
 char mutex_error[]="Error al crear los mutex de la ronda\n";
 
+/* mensaje */
+char fin_juego[]="Termina ejecución de dealer\n";
+char fin_hilos[]="Número de hilos terminados:\n";
+
 int main(int, char *[]);
 
 void init();
@@ -35,7 +39,7 @@ int main(int argc, char * argv[])
 
   if(argc > 1){
     num_jugadores = atoi(argv[1]);
-    if( num_jugadores<=2 || num_jugadores>=52 ){
+    if( num_jugadores<2 || num_jugadores>52 ){
       fprintf(stderr,"%s",numero_inv);
       exit(1);
     }
@@ -66,6 +70,7 @@ int main(int argc, char * argv[])
 
   liberar_recursos();
 
+  fprintf(stdout,"%s",fin_juego);
   return 0;
 }
 
@@ -162,8 +167,9 @@ void quitar_jugadores(int index){
   int join_index;
   for(join_index=0 ; join_index<num_jugadores ; ++join_index){
     pthread_join(jugadores[join_index],&estado_join);
-    fprintf(stdout,"Hilo terminado\n");
   }
+  fprintf(stdout,"\n%s\t%d\n",fin_hilos,join_index);
+
 }
 
 

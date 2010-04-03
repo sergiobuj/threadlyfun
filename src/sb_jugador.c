@@ -18,8 +18,7 @@ turno_jugador(void * param)
     pthread_mutex_lock(&mtx_jugadores[me]);
     sleep(1);
     if(!game_over){
-
-      printf("nombre jugador %ld\n",me);
+      printf("Jugando el número: %ld\n",me+1);
     }else{
       break;
      
