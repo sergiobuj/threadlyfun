@@ -1,5 +1,8 @@
 /* @(#)sb_jugador.h
- */
+   AUTOR: Sergio Botero Uribe
+   Creado para la practica de sistemas operativos (Manotazo).
+   EAFIT 2010-1
+*/
 
 #ifndef _JUGADOR_H
 #define _JUGADOR_H 1

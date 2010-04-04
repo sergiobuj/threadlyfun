@@ -1,5 +1,8 @@
 /* @(#)sb_jugador.c
- */
+   AUTOR: Sergio Botero Uribe
+   Creado para la practica de sistemas operativos (Manotazo).
+   EAFIT 2010-1
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -25,7 +28,8 @@ manos(void * param)
 	++cartas_centro;
 	cartas_jugadores[me][cuenta_cartas[me]-1] = NO_CARTA;
 	--cuenta_cartas[me];
-	//	printf("Jugando el número: %ld\n",me+1);
+	//	fprintf(stdout,"Jugando el número: %ld\n",me+1);
+	//	fprintf(stdout,"carta--> %d\n",carta_siguiente);
       }
 
     }else{

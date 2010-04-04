@@ -1,5 +1,8 @@
 /* @(#)sb_dealer.h
- */
+   AUTOR: Sergio Botero Uribe
+   Creado para la practica de sistemas operativos (Manotazo).
+   EAFIT 2010-1
+*/
 
 #ifndef _DEALER_H
 #define _DEALER_H 1

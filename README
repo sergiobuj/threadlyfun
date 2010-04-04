@@ -1,5 +1,22 @@
 threadly fun mtzo
 
-TODO: take turn and put card.
-TODO: orher player's move
+sb_jugador.{h|c}
+void * manos(void *);
+void * ojos(int);
+void * tomar_cartas(int);
 
+sb_dealer.{h|c}
+int main(int, char *[]);	**
+void init();
+void c_baraja(int []);
+void barajar_cartas(int [],int);
+void repartir_cartas();
+void lock_mutex_ronda(int);
+void iniciar_juego();
+void poner_jugadores();
+void quitar_jugadores();
+void liberar_recursos();
+void imprimir_juego();
+
+
+TODO: EYES!!!!

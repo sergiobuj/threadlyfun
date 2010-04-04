@@ -1,5 +1,8 @@
 /* @(#)sb_dealer.c
- */
+   AUTOR: Sergio Botero Uribe
+   Creado para la practica de sistemas operativos (Manotazo).
+   EAFIT 2010-1
+*/
 
 
 #include <stdlib.h>
@@ -112,6 +115,8 @@ int main(int argc, char * argv[])
 void
 init()
 {
+  freopen("Resultados","w",stdout);
+
   jugadores = NULL;
   num_jugadores = 2;
   srand((unsigned)time(0));
