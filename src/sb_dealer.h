@@ -23,4 +23,7 @@ int num_jugadores;
 int cartas_centro;
 int carta_siguiente;
 
+void liberar_recursos();
+void imprimir_juego();
+
 #endif /* _DEALER_H */

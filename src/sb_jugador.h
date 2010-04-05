@@ -11,8 +11,12 @@
 
 #include <pthread.h>
 pthread_mutex_t *mtx_jugadores;
+
 int **cartas_jugadores;
 int * cuenta_cartas;
 
+void init_recursos_jugadores();
+void liberar_recursos_jugadores();
 void * manos(void *);
+
 #endif /* _JUGADOR_H */

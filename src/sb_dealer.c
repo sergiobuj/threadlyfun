@@ -22,9 +22,12 @@ char cuenta_error[]="Error al crear el contador de cartas de cada jugador\n";
 
 /* mensaje */
 char fin_juego[]="Termina ejecución de dealer\n";
-char fin_hilos[]="Número de hilos terminados:\n";
+char fin_hilos[]="Número de hilos terminados:";
 char inicio_ronda[]="Ronda";
+char ronda_inicial[]="Ronda inicial";
+char ronda_final[]="Ronda final";
 char jugador_string[]="Jugador";
+char cartas_mesa[]="Cartas en la mesa";
 
 int main(int, char *[]);
 
@@ -36,9 +39,7 @@ void lock_mutex_ronda(int);
 void iniciar_juego();
 void poner_jugadores();
 void quitar_jugadores();
-void liberar_recursos();
-void imprimir_juego();
-
+void terminar_juego();
 /*
  */
 int main(int argc, char * argv[])
@@ -98,14 +99,8 @@ int main(int argc, char * argv[])
 
   iniciar_juego( arc4random()%num_jugadores  );
 
-  int time_out=5;
-  while(--time_out) sleep(1);
-  fin_del_juego=1;
-
-  quitar_jugadores(num_jugadores);
-  liberar_recursos();
-  
-  fprintf(stdout,"%s",fin_juego);
+  while(!fin_del_juego);
+  terminar_juego();
   return 0;
 }
 
@@ -197,6 +192,7 @@ lock_mutex_ronda(int index)
 void
 iniciar_juego(int jugador)
 {
+  init_recursos_jugadores();
   lock_mutex_ronda(num_jugadores);
   c_baraja(cartas);
   barajar_cartas(cartas , CARTAS  );
@@ -231,16 +227,20 @@ poner_jugadores()
  */
 void
 quitar_jugadores(int index)
-{  
+{ 
+  int i=index;
   while(index)
     pthread_mutex_unlock(&mtx_jugadores[--index]);
-
+  
   void * estado_join;
   int join_index;
   for(join_index=0 ; join_index<num_jugadores ; ++join_index){
     pthread_join(jugadores[join_index],&estado_join);
   }
   fprintf(stdout,"\n%s\t%d\n",fin_hilos,join_index);
+
+  while(i)
+    pthread_mutex_destroy(&mtx_jugadores[--i]);
 
 }
 
@@ -250,6 +250,7 @@ quitar_jugadores(int index)
 void
 liberar_recursos()
 {
+  liberar_recursos_jugadores();
   realloc(jugadores,0); //cool free(jugadores);
   free(cartas_jugadores);
   free(mtx_jugadores);
@@ -262,9 +263,18 @@ liberar_recursos()
 void
 imprimir_juego(int ronda)
 {
+	
+
+	
   int i,j,karta;
   char rep_carta;
-  fprintf( stdout, "%s %d\n",inicio_ronda,ronda);
+  if(ronda == -1)
+    fprintf( stdout, "\n\t--------------------\n\n\n%s\n",ronda_final,ronda);
+  else if (ronda == 0)
+    fprintf( stdout, "%s\n",ronda_inicial);
+  else 
+    fprintf( stdout, "\n\t--------------------\n\n\n%s %d\n",inicio_ronda,ronda);
+	
   for(i=0; i<num_jugadores; ++i){
     for(j=0; j<CARTAS; ++j){
       if(j==0) fprintf(stdout,"%s #%3d  (%d)\n",jugador_string,i+1,cuenta_cartas[i]);
@@ -288,8 +298,40 @@ imprimir_juego(int ronda)
     }
     puts("");
   }
+	
+  for(j=0; j<CARTAS; ++j){
+    if(j==0) fprintf(stdout,"%s (%d)\n",cartas_mesa,cartas_centro);
+    karta = cartas[j];
+    if(karta == NO_CARTA){
+      break;
+    }else if(karta == 0){
+      rep_carta='A';
+    }else if(karta == 9){
+      rep_carta= 'X';
+    }else if(karta == 10){
+      rep_carta = 'J';
+    }else if(karta == 11){
+      rep_carta = 'Q';
+    }else if(karta == 12){
+      rep_carta = 'K';
+    }else{
+      rep_carta = '1'+karta;
+    }
+    fprintf(stdout,"%c  ", rep_carta);
+  }
+  puts("");
+
 }
 
+/*
+ */
+void
+terminar_juego(){
+  imprimir_juego(-1);
+  quitar_jugadores(num_jugadores);
+  liberar_recursos();
+  fprintf(stdout,"%s",fin_juego);
+}
 
 /*
   cartas[i] ^= cartas[j];
