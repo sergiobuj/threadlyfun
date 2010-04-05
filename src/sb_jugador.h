@@ -7,16 +7,27 @@
 #ifndef _JUGADOR_H
 #define _JUGADOR_H 1
 
-#define SIGUIENTE ((me+1)%num_jugadores)
+#include "sb_common.h"
 
-#include <pthread.h>
-pthread_mutex_t *mtx_jugadores;
+#define SIGUIENTE (( me + 1 ) % num_jugadores)
 
-int **cartas_jugadores;
-int * cuenta_cartas;
+/* error */
+char crear_ojos_error[] = "Error al crear los ojos de algún jugador\n";
 
-void init_recursos_jugadores();
-void liberar_recursos_jugadores();
-void * manos(void *);
+/* mensajes */
+char jugador_pierde[] = "Esta ronda la pierde el jugador";
+
+int ronda_jugada;
+int poner_manos;
+int quitar_manos;
+int cartas_recogidas;
+int manos_en_centro;
+pthread_mutex_t manotazo;
+pthread_mutex_t poner_mano;
+pthread_mutex_t quitar_mano;
+
+void * tomar_cartas( long );
+void * ojos( void *);
+void forzar_salida();
 
 #endif /* _JUGADOR_H */
