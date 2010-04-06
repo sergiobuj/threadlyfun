@@ -148,7 +148,7 @@ void iniciar_juego(int jugador) {
   lock_mutex_ronda( num_jugadores );
   c_baraja( cartas );
   barajar_cartas( cartas , CARTAS  );
-  repartir_cartas( cartas_jugadores );
+  repartir_cartas(  );
   imprimir_juego( 0 );
   poner_jugadores();  
   pthread_mutex_unlock( &mtx_jugadores[jugador] );
@@ -223,7 +223,7 @@ void imprimir_juego_h(int ronda) {
   int i,j,karta;
   char rep_carta;
   if(ronda == -1)
-    fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final , ronda);
+    fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);
   else if (ronda == 0)
     fprintf( stdout, "%s\n",ronda_inicial);
   else 

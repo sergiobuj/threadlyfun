@@ -8,6 +8,7 @@
 #define _COMMON_H 1
 
 #include <pthread.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>

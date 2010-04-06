@@ -98,8 +98,8 @@ void * ojos(void * param) {
   long me = (long) param;
   while( !fin_del_juego ){
     if(poner_manos == 1){
-      sleep(2);
-      // sleep( arc4random() % 5  );
+			//sleep(2);
+		usleep( arc4random() % 500  );
       pthread_mutex_lock( &poner_mano );
       ++manos_en_centro;
       if( manos_en_centro == num_jugadores ){
