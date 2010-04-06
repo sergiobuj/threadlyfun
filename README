@@ -25,4 +25,7 @@ TODO: EYES!!!!
 http://irc.essex.ac.uk/www.iota-six.co.uk/c/f7_dynamic_memory_allocation.asp
 http://www.cs.cf.ac.uk/Dave/C/node31.html#SECTION003100000000000000000
 https://computing.llnl.gov/tutorials/pthreads/exercise.html
-C Interfaces and Implementations: Techniques for Creating Reusable Software
+C Interfaces and Implementations: Techniques for Creating Reusable SoftwareMac Terminal
+for y in 52 2 3 4 5; do ./dealer 5 ; mv Resultados Resultados5 ; open Resultados5 ; done
+Linux Terminal
+for y in 52 2 3 4 5; do ./dealer 5 ; mv Resultados Resultados5 ; gedit Resultados5 ; done

@@ -11,21 +11,24 @@
 pthread_t * jugadores;
 
 /* error */
-char numero_inv[]="N√∫mero de jugadores inv√°lido.\nN√∫mero debe ser 1 < x < 53\n";
-char jugadores_error[]="Error al crear espacio para los jugadores\n";
-char crear_error[]="Error al crear un jugador\n";
-char mutex_error[]="Error al crear los mutex de la ronda\n";
-char cartas_error[]="Error al crear la mesa de juego\n";
-char cuenta_error[]="Error al crear el contador de cartas de cada jugador\n";
+char numero_inv[] = "N˙mero de jugadores inv·lido.\nN˙mero debe ser 1 < x < 53\n";
+char jugadores_error[] = "Error al crear espacio para los jugadores\n";
+char crear_error[] = "Error al crear un jugador\n";
+char mutex_error[] = "Error al crear los mutex de la ronda\n";
+char cartas_error[] = "Error al crear la mesa de juego\n";
+char cuenta_error[] = "Error al crear el contador de cartas de cada jugador\n";
 
 /* mensaje */
-char fin_juego[]="Termina ejecuci√≥n de dealer\n";
-char fin_hilos[]="N√≥mero de hilos terminados:";
-char inicio_ronda[]="Ronda";
-char ronda_inicial[]="Ronda inicial";
-char ronda_final[]="Ronda final";
-char jugador_string[]="Jugador";
-char cartas_mesa[]="Cartas en la mesa";
+char fin_juego[] = "Termina ejecuciÛn de dealer\n";
+char fin_hilos[] = "N˙mero de hilos terminados:";
+char inicio_ronda[] = "Ronda";
+char ronda_inicial[] = "Ronda inicial";
+char ronda_final[] = "Ronda final";
+char jugador_string[] = "Jugador";
+char cartas_mesa[] = "Cartas en la mesa";
+char ganador[] = "Gana el jugador";
+char empate[] = "Empataron los jugadores";
+char pierden_msg[] = "Perdedor";
 
 int main(int, char *[]);
 
@@ -38,5 +41,9 @@ void iniciar_juego();
 void poner_jugadores();
 void quitar_jugadores();
 void terminar_juego();
+char valor_carta(int);
+void imprimir_juego_v();
+void imprimir_juego_h();
+void imprimir_resultados();
 
 #endif /* _DEALER_H */

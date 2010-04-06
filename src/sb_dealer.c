@@ -205,7 +205,21 @@ void liberar_recursos(){
 
 /*
  */
-void imprimir_juego(int ronda) {	
+void imprimir_juego(int ronda) {
+  imprimir_juego_h( ronda ) ;
+  //  imprimir_juego_v( ronda ) ;
+  if(ronda == -1) imprimir_resultados();
+}
+
+/*
+ */
+void imprimir_juego_v(int ronda) {
+  
+}
+
+/*
+ */
+void imprimir_juego_h(int ronda) {
   int i,j,karta;
   char rep_carta;
   if(ronda == -1)
@@ -221,47 +235,47 @@ void imprimir_juego(int ronda) {
       karta = cartas_jugadores[i][j];
       if(karta == NO_CARTA){
 	break;
-      }else if(karta == 0){
-	rep_carta='A';
-      }else if(karta == 9){
-	rep_carta= 'X';
-      }else if(karta == 10){
-	rep_carta = 'J';
-      }else if(karta == 11){
-	rep_carta = 'Q';
-      }else if(karta == 12){
-	rep_carta = 'K';
-      }else{
-	rep_carta = '1' + karta;
       }
-      fprintf(stdout,"%c  ", rep_carta);
+      fprintf(stdout,"%c  ",  valor_carta(karta));
     }
     puts("");
   }
-	
+
   for(j = 0; j < CARTAS; ++j){
     if( j == 0 ) fprintf(stdout,"%s (%d)\n", cartas_mesa , cartas_centro);
     karta = cartas[j];
     if(karta == NO_CARTA){
       break;
-    }else if(karta == 0){
-      rep_carta='A';
-    }else if(karta == 9){
-      rep_carta= 'X';
-    }else if(karta == 10){
-      rep_carta = 'J';
-    }else if(karta == 11){
-      rep_carta = 'Q';
-    }else if(karta == 12){
-      rep_carta = 'K';
-    }else{
-      rep_carta = '1'+karta;
     }
-    fprintf(stdout,"%c  ", rep_carta);
+    fprintf(stdout,"%c  ", valor_carta(karta));
   }
   puts("");
 
+
+
 }
+
+/*
+ */
+char valor_carta(int karta){
+  char rep_carta;
+  if(karta == 0){
+    rep_carta='A';
+  }else if(karta == 9){
+    rep_carta= 'X';
+  }else if(karta == 10){
+    rep_carta = 'J';
+  }else if(karta == 11){
+    rep_carta = 'Q';
+  }else if(karta == 12){
+    rep_carta = 'K';
+  }else{
+    rep_carta = '1' + karta;
+  }
+
+  return rep_carta;
+}
+
 
 /*
  */
@@ -271,6 +285,48 @@ void terminar_juego() {
   liberar_recursos();
   fprintf(stdout, "%s" , fin_juego);
 }
+
+
+/*
+ */
+void imprimir_resultados() {
+
+  char ganan[52] = "", pierden[52] = "";
+  int count_g = 0 , count_p = 0 , max_p = 0 , i; 
+  for(i = 0; i < num_jugadores; ++i){
+    if( cuenta_cartas[i] == 0){
+      ++count_g;
+    }else if( cuenta_cartas[i] == max_p ){
+      ++count_p;
+    }else if( max_p < cuenta_cartas[i] ){
+      max_p = cuenta_cartas[i];
+      count_p = 1;
+    }
+  }
+  for(i = 0; i < num_jugadores; ++i){
+    if( cuenta_cartas[i] == 0  ){
+      sprintf(ganan,"%s %d",ganan, i + 1 );
+    }else if(cuenta_cartas[i] == max_p){
+      sprintf(pierden,"%s %d",pierden, i + 1 );
+    }
+  }
+  
+
+  if( count_g > 1 ){
+    fprintf(stdout, "%s %s\n",empate,ganan);
+  }else if( count_g == 1 ){
+    fprintf(stdout, "%s %s\n",ganador,ganan);
+  }
+  
+  if( count_p > 1 ){
+    fprintf(stdout, "%ses %s\n",pierden_msg,pierden);
+  }else if( count_p == 1 ){
+    fprintf(stdout, "%s %s\n",pierden_msg,pierden);
+  }
+  puts("");
+
+}
+
 
 /*
   cartas[i] ^= cartas[j];

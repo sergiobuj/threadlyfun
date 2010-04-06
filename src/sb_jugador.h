@@ -15,7 +15,7 @@
 char crear_ojos_error[] = "Error al crear los ojos de algún jugador\n";
 
 /* mensajes */
-char jugador_pierde[] = "Esta ronda la pierde el jugador";
+char jugador_pierde[] = "\nEsta ronda la pierde el jugador";
 
 int ronda_jugada;
 int poner_manos;
