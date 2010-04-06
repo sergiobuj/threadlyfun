@@ -74,7 +74,7 @@ int main(int argc, char * argv[])
 /*
  */
 void init() {
-  freopen("Resultados", "w", stdout);
+  freopen( nombre_archivo, "w", stdout);
   jugadores = NULL;
   num_jugadores = 2;
   srand( (unsigned)time(0) );

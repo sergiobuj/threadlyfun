@@ -30,6 +30,8 @@ char ganador[] = "Gana el jugador";
 char empate[] = "Empataron los jugadores";
 char pierden_msg[] = "Perdedor";
 
+char nombre_archivo[] = "resultados";
+
 int main(int, char *[]);
 
 void init();
