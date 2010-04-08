@@ -25,6 +25,9 @@ int manos_en_centro;
 pthread_mutex_t manotazo;
 pthread_mutex_t poner_mano;
 pthread_mutex_t quitar_mano;
+pthread_cond_t cond_poner_manos;
+pthread_cond_t cond_quitar_manos;
+pthread_cond_t cond_juego;
 
 void * tomar_cartas( long );
 void * ojos( void *);
