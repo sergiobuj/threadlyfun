@@ -18,7 +18,23 @@ int main(int argc, char * argv[])
       fprintf(stderr, "%s" , numero_inv );
       exit(1);
     }
+	  
+	  if(argc > 2){
+		  if ( *argv[2] == 'h') {
+			  vert_hor = 0;
+		  }else if ( *argv[2] == 'v') {
+			  vert_hor = 1;
+		  }else {
+			  fprintf(stdout, "%s\n",modo_uso);
+			  exit(1);
+		  }
+	  }
+  
+  }else {
+	  fprintf(stdout, "%s\n",modo_uso);
+	  exit(1);
   }
+
   
   void * jugadores_ptr = realloc( jugadores, ( num_jugadores * sizeof(pthread_t) ));
   if(jugadores_ptr == NULL){
@@ -80,6 +96,7 @@ void init() {
   srand( (unsigned)time(0) );
   fin_del_juego = 0;
   carta_siguiente = NO_CARTA;
+	vert_hor = 0;
 }
 
 /*
@@ -206,54 +223,87 @@ void liberar_recursos(){
 /*
  */
 void imprimir_juego(int ronda) {
-  imprimir_juego_h( ronda ) ;
-  //  imprimir_juego_v( ronda ) ;
-  if(ronda == -1) imprimir_resultados();
-}
-
-/*
- */
-void imprimir_juego_v(int ronda) {
-  
-}
-
-/*
- */
-void imprimir_juego_h(int ronda) {
-  int i,j,karta;
-  char rep_carta;
-  if(ronda == -1)
-    fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);
-  else if (ronda == 0)
-    fprintf( stdout, "%s\n",ronda_inicial);
-  else 
-    fprintf( stdout, "\n\t--------------------\n\n\n%s %d\n", inicio_ronda, ronda);
 	
-  for(i = 0; i < num_jugadores; ++i){
-    for(j = 0; j < CARTAS; ++j){
-      if(j == 0 ) fprintf(stdout,"%s #%3d  (%d)\n", jugador_string, i + 1 , cuenta_cartas[i]);
-      karta = cartas_jugadores[i][j];
-      if(karta == NO_CARTA){
-	break;
-      }
-      fprintf(stdout,"%c  ",  valor_carta(karta));
-    }
-    puts("");
-  }
 
-  for(j = 0; j < CARTAS; ++j){
-    if( j == 0 ) fprintf(stdout,"%s (%d)\n", cartas_mesa , cartas_centro);
-    karta = cartas[j];
-    if(karta == NO_CARTA){
-      break;
-    }
-    fprintf(stdout,"%c  ", valor_carta(karta));
-  }
-  puts("");
+	if(ronda == -1)
+		fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);
+	else if (ronda == 0)
+		fprintf( stdout, "%s\n",ronda_inicial);
+	else 
+		fprintf( stdout, "\n\t--------------------\n\n\n%s %d\n", inicio_ronda, ronda);
+	
+	
+	if(vert_hor == 1)
+		imprimir_juego_v( ) ;		
+	else
+		imprimir_juego_h( ) ;
 
 
-
+	int i,j,karta;
+	for(j = 0; j < CARTAS; ++j){
+		if( j == 0 ) fprintf(stdout,"%s (%d)\n", cartas_mesa , cartas_centro);
+		karta = cartas[j];
+		if(karta == NO_CARTA){
+			break;
+		}
+		fprintf(stdout,"%c  ", valor_carta(karta));
+	}
+	puts("");
+	
+	if(ronda == -1) imprimir_resultados();
 }
+
+
+/*
+ */
+void imprimir_juego_v() {
+  
+	int i, j, k , maxj=0, karta;
+	
+	for(i = 0 ; i < num_jugadores; ++i)
+		if (cuenta_cartas[i] > maxj) {
+			maxj = cuenta_cartas[i];
+		}
+
+	if( maxj == CARTAS )
+		maxj= CARTAS-1;
+	
+	for(j = maxj ; j >= 0 ; --j  ){
+		printf("|\t");
+		for(i = 0; i < num_jugadores ; ++i){
+			karta = cartas_jugadores[i][j];
+			printf("%c\t" ,  valor_carta(karta) );
+		}
+		puts("");
+	}
+	
+	printf("|\t");
+	for(i = 0; i < num_jugadores ; ++i) printf("(%d)\t",cuenta_cartas[i]);
+	puts("");
+	printf("|\t");
+	for(i = 0; i < num_jugadores ; ++i) printf("J#%d\t",i+1);
+	puts("");
+}
+
+
+/*
+ */
+void imprimir_juego_h() {
+	int i,j,karta;
+	
+	for(i = 0; i < num_jugadores; ++i){
+		for(j = 0; j < CARTAS; ++j){
+			if(j == 0 ) fprintf(stdout,"%s #%3d  (%d)\n", jugador_string, i + 1 , cuenta_cartas[i]);
+			karta = cartas_jugadores[i][j];
+			if(karta == NO_CARTA){
+				break;
+			}
+			fprintf(stdout,"%c  ",  valor_carta(karta));
+		}
+		puts("");
+	}	
+}
+
 
 /*
  */
@@ -269,6 +319,8 @@ char valor_carta(int karta){
     rep_carta = 'Q';
   }else if(karta == 12){
     rep_carta = 'K';
+  }else if(karta == -1){
+	  rep_carta = ' ';
   }else{
     rep_carta = '1' + karta;
   }

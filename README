@@ -1,31 +1,19 @@
 threadly fun mtzo
 
+sb_common.h
+
 sb_jugador.{h|c}
-void * manos(void *);
-void * ojos(int);
-void * tomar_cartas(int);
 
 sb_dealer.{h|c}
 int main(int, char *[]);	**
-void init();
-void c_baraja(int []);
-void barajar_cartas(int [],int);
-void repartir_cartas();
-void lock_mutex_ronda(int);
-void iniciar_juego();
-void poner_jugadores();
-void quitar_jugadores();
-void liberar_recursos();
-void imprimir_juego();
-
-
-TODO: EYES!!!!
-
 
 http://irc.essex.ac.uk/www.iota-six.co.uk/c/f7_dynamic_memory_allocation.asp
 http://www.cs.cf.ac.uk/Dave/C/node31.html#SECTION003100000000000000000
 https://computing.llnl.gov/tutorials/pthreads/exercise.html
-C Interfaces and Implementations: Techniques for Creating Reusable SoftwareMac Terminal
-for y in 52 2 3 4 5; do ./dealer 5 ; mv Resultados Resultados5 ; open Resultados5 ; done
+C Interfaces and Implementations: Techniques for Creating Reusable Software
+
+Mac Terminal
+i=0; for y in 52 2 3 4 5; do ./dealer $y ; mv resultados resultados$i ; open resultados$i ; let ++i ; done
+
 Linux Terminal
-for y in 52 2 3 4 5; do ./dealer 5 ; mv Resultados Resultados5 ; gedit Resultados5 ; done
+i=0; for y in 52 2 3 4 5; do ./dealer $y ; mv resultados resultados$i ; gedit resultados$i ; let ++i ; done

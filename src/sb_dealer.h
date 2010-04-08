@@ -17,12 +17,13 @@ char crear_error[] = "Error al crear un jugador\n";
 char mutex_error[] = "Error al crear los mutex de la ronda\n";
 char cartas_error[] = "Error al crear la mesa de juego\n";
 char cuenta_error[] = "Error al crear el contador de cartas de cada jugador\n";
+char modo_uso[] = "Modo ejecuci—n:\t./dealer 2..52 [h | v]";
 
 /* mensaje */
 char fin_juego[] = "Termina ejecución de dealer\n";
 char fin_hilos[] = "Número de hilos terminados:";
 char inicio_ronda[] = "Ronda";
-char ronda_inicial[] = "Ronda inicial";
+char ronda_inicial[] = "==Pr‡ctica Manotazo Sistemas Operativos 2010-1\n==Sergio Botero\nRonda inicial";
 char ronda_final[] = "Ronda final";
 char jugador_string[] = "Jugador";
 char cartas_mesa[] = "Cartas en la mesa";
@@ -33,6 +34,7 @@ char pierden_msg[] = "Perdedor";
 char nombre_archivo[] = "resultados";
 
 int main(int, char *[]);
+int vert_hor;
 
 void init();
 void c_baraja(int []);
