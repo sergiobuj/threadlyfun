@@ -7,7 +7,6 @@
 
 #include "sb_jugador.h"
 
-
 /*
  */
 void init_recursos_jugadores() {
