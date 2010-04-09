@@ -18,7 +18,7 @@ void init_recursos_jugadores() {
   pthread_mutex_init( &manotazo , NULL );
   pthread_mutex_init( &poner_mano , NULL );
   pthread_mutex_init( &quitar_mano , NULL );
-	
+
   pthread_cond_init( &cond_poner_manos , NULL );
   pthread_cond_init( &cond_juego , NULL );
   pthread_cond_init( &cond_quitar_manos , NULL );

@@ -90,6 +90,11 @@ int main(int argc, char * argv[])
 /*
  */
 void init() {
+  
+#ifndef __APPLE__
+  puts("soy darwin");
+#endif
+
   freopen( nombre_archivo, "w", stdout);
   jugadores = NULL;
   num_jugadores = 2;
@@ -213,7 +218,7 @@ void quitar_jugadores(int index) {
  */
 void liberar_recursos(){
   liberar_recursos_jugadores();
-  realloc( jugadores,0 ); //cool free(jugadores);
+  free(jugadores);
   free( cartas_jugadores );
   free( mtx_jugadores );
   free( cuenta_cartas );
