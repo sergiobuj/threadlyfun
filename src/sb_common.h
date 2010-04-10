@@ -36,7 +36,8 @@ int cartas_centro;
 int carta_siguiente;
 int fin_del_juego;
 int num_jugadores;
-
+pthread_mutex_t mtx_juego;
+pthread_cond_t cond_fin_juego;
 void imprimir_juego();
 void liberar_recursos();
 

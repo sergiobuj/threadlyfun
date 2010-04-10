@@ -80,8 +80,11 @@ int main(int argc, char * argv[])
   cuenta_cartas = (int *)cuenta_cartas_ptr;
 
   iniciar_juego( arc4random() % num_jugadores );
-
-  while( !fin_del_juego );
+  
+  pthread_mutex_lock( &mtx_juego );
+  while( !fin_del_juego ) pthread_cond_wait( &cond_fin_juego , &mtx_juego ) ;
+  pthread_mutex_unlock( &mtx_juego );
+  
   terminar_juego();
   return 0;
 }
@@ -94,7 +97,8 @@ void init() {
 #ifndef __APPLE__
   puts("soy darwin");
 #endif
-
+  pthread_mutex_init( &mtx_juego , NULL);
+  pthread_cond_init( &cond_fin_juego , NULL );
   freopen( nombre_archivo, "w", stdout);
   jugadores = NULL;
   num_jugadores = 2;
@@ -218,7 +222,11 @@ void quitar_jugadores(int index) {
  */
 void liberar_recursos(){
   liberar_recursos_jugadores();
-  free(jugadores);
+  
+  pthread_mutex_destroy( &mtx_juego);
+  pthread_cond_destroy( &cond_fin_juego);
+  
+  free( jugadores );
   free( cartas_jugadores );
   free( mtx_jugadores );
   free( cuenta_cartas );
@@ -228,7 +236,6 @@ void liberar_recursos(){
 /*
  */
 void imprimir_juego(int ronda) {
-	
 
   if(ronda == -1)
     fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);

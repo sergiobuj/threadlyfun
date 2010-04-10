@@ -92,7 +92,12 @@ void * manos(void * param) {
       if( ( cuenta_cartas[i] == 0 && cartas_centro == 0 ) || cartas_centro == 52 ){
 
 	pthread_mutex_lock ( &manotazo);
+	
+	pthread_mutex_lock( &mtx_juego );
 	fin_del_juego = 1;
+	pthread_cond_broadcast( &cond_fin_juego );
+	pthread_mutex_unlock( &mtx_juego );
+
 	poner_manos = 1;
 	pthread_mutex_unlock ( &manotazo);
 	pthread_cond_broadcast ( &cond_poner_manos );
@@ -139,7 +144,12 @@ void * ojos(void * param) {
       int i;
       for(i=0; i < num_jugadores; ++i){
 	if( cuenta_cartas[i] == 0  ){
+	  
+	  pthread_mutex_lock( &mtx_juego );
 	  fin_del_juego = 1;
+	  pthread_cond_broadcast( &cond_fin_juego );
+	  pthread_mutex_unlock( &mtx_juego );
+
 	  //pthread_cond_broadcast( &cond_quitar_manos );
 	  //pthread_cond_broadcast( &cond_poner_manos );
 	  //break;
