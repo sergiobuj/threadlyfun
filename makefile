@@ -8,7 +8,7 @@ HEA = src/sb_*.h
 CC = gcc
 CFLAGS = -g -lpthread
 FEDFLAGS = -g -lpthread -lc
-RM = rm -f
+RM = rm -rf
 BIN = dealer
 
 $(BIN): $(SRC) $(HEA)
@@ -18,4 +18,5 @@ fedora: $(SRC) $(HEA)
 	$(CC) -o $(BIN) $^ $(FEDFLAGS)
 
 clean:
-	$(RM) $(BIN)
+	$(RM) $(BIN) $(BIN).dSYM
+
