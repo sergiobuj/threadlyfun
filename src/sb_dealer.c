@@ -79,9 +79,12 @@ int main(int argc, char * argv[])
   }
   cuenta_cartas = (int *)cuenta_cartas_ptr;
 
-  iniciar_juego( random() % num_jugadores );
-
-  while( !fin_del_juego );
+  iniciar_juego( arc4random() % num_jugadores );
+  
+  pthread_mutex_lock( &mtx_juego );
+  while( !fin_del_juego ) pthread_cond_wait( &cond_fin_juego , &mtx_juego ) ;
+  pthread_mutex_unlock( &mtx_juego );
+  
   terminar_juego();
   return 0;
 }
@@ -90,6 +93,12 @@ int main(int argc, char * argv[])
 /*
  */
 void init() {
+  
+#ifndef __APPLE__
+  puts("soy darwin");
+#endif
+  pthread_mutex_init( &mtx_juego , NULL);
+  pthread_cond_init( &cond_fin_juego , NULL );
   freopen( nombre_archivo, "w", stdout);
   jugadores = NULL;
   num_jugadores = 2;
@@ -213,7 +222,12 @@ void quitar_jugadores(int index) {
  */
 void liberar_recursos(){
   liberar_recursos_jugadores();
-  free(jugadores);//realloc( jugadores,0 ); //cool
+  
+  pthread_mutex_destroy( &mtx_juego);
+  pthread_cond_destroy( &cond_fin_juego);
+  
+  free( jugadores );
+
   free( cartas_jugadores );
   //free( mtx_jugadores );
   // free( cuenta_cartas );
@@ -223,7 +237,6 @@ void liberar_recursos(){
 /*
  */
 void imprimir_juego(int ronda) {
-	
 
   if(ronda == -1)
     fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);
@@ -256,7 +269,6 @@ void imprimir_juego(int ronda) {
 
 /*
  */
-<<<<<<< HEAD
 void imprimir_juego_v() {
   
   int i, j, k , maxj=0, karta;
@@ -284,124 +296,110 @@ void imprimir_juego_v() {
   printf("|\t");
   for(i = 0; i < num_jugadores ; ++i) printf("J#%d\t",i+1);
   puts("");
-  =======
-    void imprimir_juego_v(int ronda) {
 
-      >>>>>>> cf5c5326a494042d1b0be16011dcee6ba6ba5d49
-    }
+}
 
 
-    /*
-     */
-    void imprimir_juego_h() {
-      int i,j,karta;
-      <<<<<<< HEAD
+/*
+ */
+void imprimir_juego_h() {
+  int i,j,karta;	
 	
-		=======
-		char rep_carta;
-      if(ronda == -1)
-	fprintf( stdout, "\n\t--------------------\n\n\n%s\n", ronda_final);
-      else if (ronda == 0)
-	fprintf( stdout, "%s\n",ronda_inicial);
-      else
-	fprintf( stdout, "\n\t--------------------\n\n\n%s %d\n", inicio_ronda, ronda);
-
-      >>>>>>> cf5c5326a494042d1b0be16011dcee6ba6ba5d49
-		for(i = 0; i < num_jugadores; ++i){
-		  for(j = 0; j < CARTAS; ++j){
-		    if(j == 0 ) fprintf(stdout,"%s #%3d  (%d)\n", jugador_string, i + 1 , cuenta_cartas[i]);
-		    karta = cartas_jugadores[i][j];
-		    if(karta == NO_CARTA){
-		      break;
-		    }
-		    fprintf(stdout,"%c  ",  valor_carta(karta));
-		  }
-		  puts("");
-		}	
+  for(i = 0; i < num_jugadores; ++i){
+    for(j = 0; j < CARTAS; ++j){
+      if(j == 0 ) fprintf(stdout,"%s #%3d  (%d)\n", jugador_string, i + 1 , cuenta_cartas[i]);
+      karta = cartas_jugadores[i][j];
+      if(karta == NO_CARTA){
+	break;
+      }
+      fprintf(stdout,"%c  ",  valor_carta(karta));
     }
+    puts("");
+  }	
+}
 
 
-    /*
-     */
-    char valor_carta(int karta){
-      char rep_carta;
-      if(karta == 0){
-	rep_carta='A';
-      }else if(karta == 9){
-	rep_carta= 'X';
-      }else if(karta == 10){
-	rep_carta = 'J';
-      }else if(karta == 11){
-	rep_carta = 'Q';
-      }else if(karta == 12){
-	rep_carta = 'K';
-      }else if(karta == -1){
-	rep_carta = ' ';
-      }else{
-	rep_carta = '1' + karta;
-      }
+/*
+ */
+char valor_carta(int karta){
+  char rep_carta;
+  if(karta == 0){
+    rep_carta='A';
+  }else if(karta == 9){
+    rep_carta= 'X';
+  }else if(karta == 10){
+    rep_carta = 'J';
+  }else if(karta == 11){
+    rep_carta = 'Q';
+  }else if(karta == 12){
+    rep_carta = 'K';
+  }else if(karta == -1){
+    rep_carta = ' ';
+  }else{
+    rep_carta = '1' + karta;
+  }
 
-      return rep_carta;
+  return rep_carta;
+}
+
+
+/*
+ */
+void terminar_juego() {
+  imprimir_juego( -1 );
+  quitar_jugadores( num_jugadores );
+  liberar_recursos();
+  fprintf(stdout, "%s" , fin_juego);
+}
+
+
+/*
+ */
+void imprimir_resultados() {
+
+  char ganan[52] = "", pierden[52] = "";
+  int count_g = 0 , count_p = 0 , max_p = 0 , i;
+  for(i = 0; i < num_jugadores; ++i){
+    if( cuenta_cartas[i] == 0){
+      ++count_g;
+    }else if( cuenta_cartas[i] == max_p ){
+      ++count_p;
+    }else if( max_p < cuenta_cartas[i] ){
+      max_p = cuenta_cartas[i];
+      count_p = 1;
     }
-
-
-    /*
-     */
-    void terminar_juego() {
-      imprimir_juego( -1 );
-      quitar_jugadores( num_jugadores );
-      liberar_recursos();
-      fprintf(stdout, "%s" , fin_juego);
+  }
+  for(i = 0; i < num_jugadores; ++i){
+    if( cuenta_cartas[i] == 0  ){
+      sprintf(ganan,"%s %d",ganan, i + 1 );
+    }else if(cuenta_cartas[i] == max_p){
+      sprintf(pierden,"%s %d",pierden, i + 1 );
     }
+  }
 
 
-    /*
-     */
-    void imprimir_resultados() {
+  if( count_g > 1 ){
+    fprintf(stdout, "%s %s\n",empate,ganan);
+  }else if( count_g == 1 ){
+    fprintf(stdout, "%s %s\n",ganador,ganan);
+  }
 
-      char ganan[52] = "", pierden[52] = "";
-      int count_g = 0 , count_p = 0 , max_p = 0 , i;
-      for(i = 0; i < num_jugadores; ++i){
-	if( cuenta_cartas[i] == 0){
-	  ++count_g;
-	}else if( cuenta_cartas[i] == max_p ){
-	  ++count_p;
-	}else if( max_p < cuenta_cartas[i] ){
-	  max_p = cuenta_cartas[i];
-	  count_p = 1;
-	}
-      }
-      for(i = 0; i < num_jugadores; ++i){
-	if( cuenta_cartas[i] == 0  ){
-	  sprintf(ganan,"%s %d",ganan, i + 1 );
-	}else if(cuenta_cartas[i] == max_p){
-	  sprintf(pierden,"%s %d",pierden, i + 1 );
-	}
-      }
+  if( count_p > 1 ){
+    fprintf(stdout, "%ses %s\n",pierden_msg,pierden);
+  }else if( count_p == 1 ){
+    fprintf(stdout, "%s %s\n",pierden_msg,pierden);
+  }
+  puts("");
+
+}
 
 
-      if( count_g > 1 ){
-	fprintf(stdout, "%s %s\n",empate,ganan);
-      }else if( count_g == 1 ){
-	fprintf(stdout, "%s %s\n",ganador,ganan);
-      }
+/*
+  cartas[i] ^= cartas[j];
+  cartas[j] ^= cartas[i];
+  cartas[i] ^= cartas[j];
+*/
 
-      if( count_p > 1 ){
-	fprintf(stdout, "%ses %s\n",pierden_msg,pierden);
-      }else if( count_p == 1 ){
-	fprintf(stdout, "%s %s\n",pierden_msg,pierden);
-      }
-      puts("");
-
-    }
-
-
-    /*
-      cartas[i] ^= cartas[j];
-      cartas[j] ^= cartas[i];
-      cartas[i] ^= cartas[j];
-    */
-
-    /*
-      { puts("");int i;for(i=0; i<CARTAS ;++i) fprintf(stdout, "%d ",cartas[i]);puts("");}
-    */
+/*
+  { puts("");int i;for(i=0; i<CARTAS ;++i) fprintf(stdout, "%d ",cartas[i]);puts("");}
+*/
