@@ -15,6 +15,7 @@ void init_recursos_jugadores() {
   quitar_manos = 0;
   manos_en_centro = 0;
   cartas_recogidas = 0;
+	
   pthread_mutex_init( &manotazo , NULL );
   pthread_mutex_init( &poner_mano , NULL );
   pthread_mutex_init( &quitar_mano , NULL );
@@ -131,7 +132,7 @@ void * ojos(void * param) {
       break;
     }
 		
-    usleep( arc4random() % 500 );
+    usleep( random_port( MILLISEG_MAX ));
 		
     pthread_mutex_lock( &poner_mano );
 

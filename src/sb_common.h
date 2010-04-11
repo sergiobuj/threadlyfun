@@ -29,25 +29,37 @@
 #define CARTAS_EN_PINTA 13
 #define NO_CARTA -1
 #define CARTAS 52 * BARAJAS
+#define MILLISEG_MAX 500
+
+
+/* main */
+int fin_del_juego;
+int num_jugadores;
+
+pthread_t * jugadores;
+
+int random_port( int );
+void imprimir_juego();
+void liberar_recursos();
 
 /* Dealer */
 int cartas[ CARTAS ];
 int cartas_centro;
 int carta_siguiente;
-int fin_del_juego;
-int num_jugadores;
+
 pthread_mutex_t mtx_juego;
 pthread_cond_t cond_fin_juego;
-void imprimir_juego();
-void liberar_recursos();
 
+void iniciar_juego();
+void terminar_juego();
 
 /* Jugadores */
-pthread_mutex_t *mtx_jugadores;
 int **cartas_jugadores;
 int * cuenta_cartas;
 
-void * manos(void*);
+pthread_mutex_t *mtx_jugadores;
+
+void * manos( void* );
 void init_recursos_jugadores();
 void liberar_recursos_jugadores();
 

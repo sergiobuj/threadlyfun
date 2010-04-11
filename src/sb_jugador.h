@@ -11,7 +11,7 @@
 
 #define SIGUIENTE (( me + 1 ) % num_jugadores)
 
-/* error */
+/* errores */
 char crear_ojos_error[] = "Error al crear los ojos de algún jugador\n";
 
 /* mensajes */
