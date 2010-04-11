@@ -53,7 +53,7 @@ void * manos(void * param) {
   if( estado_hilo ){
     fprintf( stderr, "%s" , crear_ojos_error);
     liberar_recursos();
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 	
   while( !fin_del_juego ){

@@ -25,21 +25,21 @@ int main(int argc, char * argv[])
       }else if ( *argv[2] == 'v') {
 	vert_hor = 1;
       }else {
-	fprintf(stdout, "%s\n",modo_uso);
-	exit(1);
+	fprintf(stderr, "%s\n",modo_uso);
+	exit(EXIT_FAILURE);
       }
     }
   
   }else {
-    fprintf(stdout, "%s\n",modo_uso);
-    exit(1);
+    fprintf(stderr, "%s\n",modo_uso);
+    exit(EXIT_FAILURE);
   }
 
   
   void * jugadores_ptr = realloc( jugadores, ( num_jugadores * sizeof(pthread_t) ));
   if(jugadores_ptr == NULL){
     fprintf(stderr , "%s" , jugadores_error);
-    exit(1);
+    exit(EXIT_FAILURE);
   }
   jugadores = (pthread_t*) jugadores_ptr;
 
@@ -47,7 +47,7 @@ int main(int argc, char * argv[])
   if(cartas_jugadores_ptr == NULL){
     fprintf(stderr , "%s" , cartas_error);
     free( jugadores );
-    exit(1);
+    exit(EXIT_FAILURE);
   }
   cartas_jugadores = cartas_jugadores_ptr;
   int i;
@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
     if(cartas_jugadores[i] == NULL){
       free( jugadores );
       free( cartas_jugadores );
-      exit(1);
+      exit(EXIT_FAILURE);
     }
   }
 
@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
     fprintf(stderr , "%s" , mutex_error);
     free( jugadores );
     free( cartas_jugadores );
-    exit(1);
+    exit(EXIT_FAILURE);
   }
   mtx_jugadores = (pthread_mutex_t*) mtx_jugadores_ptr;
   
@@ -75,7 +75,7 @@ int main(int argc, char * argv[])
     free(jugadores);
     free(cartas_jugadores);
     free(mtx_jugadores);
-    exit(1);
+    exit(EXIT_FAILURE);
   }
   cuenta_cartas = (int *)cuenta_cartas_ptr;
 
@@ -165,7 +165,7 @@ void iniciar_juego(int jugador) {
   lock_mutex_ronda( num_jugadores );
   c_baraja( cartas );
   barajar_cartas( cartas , CARTAS  );
-  repartir_cartas(  );
+  repartir_cartas( );
   imprimir_juego( 0 );
   poner_jugadores();  
   pthread_mutex_unlock( &mtx_jugadores[jugador] );
@@ -184,7 +184,7 @@ void poner_jugadores() {
       fprintf(stderr , "%s" , crear_error);
       free( jugadores );
       free( mtx_jugadores );
-      exit(1);
+      exit(EXIT_FAILURE);
     }
   }
 }
@@ -213,7 +213,7 @@ void quitar_jugadores(int index) {
  */
 void liberar_recursos(){
   liberar_recursos_jugadores();
-  realloc( jugadores,0 ); //cool free(jugadores);
+  free( jugadores );
   free( cartas_jugadores );
   free( mtx_jugadores );
   free( cuenta_cartas );

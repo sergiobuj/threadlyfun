@@ -1,16 +1,14 @@
 ==Pr‡ctica Manotazo Sistemas Operativos 2010-1
 ==Sergio Botero
 Ronda inicial
-Jugador #  1  (11)
-6  3  A  A  A  2  2  Q  Q  7  9  
-Jugador #  2  (11)
-5  J  J  K  9  Q  7  4  2  7  3  
-Jugador #  3  (10)
-4  6  2  K  9  7  8  8  A  9  
-Jugador #  4  (10)
-8  X  X  J  3  Q  J  8  4  5  
-Jugador #  5  (10)
-6  K  6  5  X  K  5  X  3  4  
+Jugador #  1  (13)
+A  3  7  9  X  4  A  K  Q  8  7  9  J  
+Jugador #  2  (13)
+3  8  5  2  2  A  6  4  8  6  5  K  9  
+Jugador #  3  (13)
+2  6  J  X  2  6  J  4  3  Q  K  X  X  
+Jugador #  4  (13)
+7  3  5  8  4  Q  K  9  5  A  7  Q  J  
 Cartas en la mesa (0)
 
 
@@ -18,154 +16,53 @@ Cartas en la mesa (0)
 
 
 Ronda 1
-Jugador #  1  (10)
-6  3  A  A  A  2  2  Q  Q  7  
-Jugador #  2  (10)
-5  J  J  K  9  Q  7  4  2  7  
-Jugador #  3  (10)
-4  6  2  K  9  7  8  8  A  9  
-Jugador #  4  (10)
-8  X  X  J  3  Q  J  8  4  5  
-Jugador #  5  (9)
-6  K  6  5  X  K  5  X  3  
-Cartas en la mesa (3)
-4  9  3  
-
-Esta ronda la pierde el jugador 5
-
-	--------------------
-
-
-Ronda 2
-Jugador #  1  (10)
-6  3  A  A  A  2  2  Q  Q  7  
-Jugador #  2  (10)
-5  J  J  K  9  Q  7  4  2  7  
-Jugador #  3  (9)
-4  6  2  K  9  7  8  8  A  
-Jugador #  4  (9)
-8  X  X  J  3  Q  J  8  4  
-Jugador #  5  (12)
-4  9  3  6  K  6  5  X  K  5  X  3  
-Cartas en la mesa (2)
-9  5  
+Jugador #  1  (4)
+A  3  7  9  
+Jugador #  2  (4)
+3  8  5  2  
+Jugador #  3  (4)
+2  6  J  X  
+Jugador #  4  (4)
+7  3  5  8  
+Cartas en la mesa (36)
+9  X  J  J  K  X  Q  9  5  K  7  7  6  Q  A  8  8  3  5  Q  4  4  9  K  6  J  K  A  A  6  Q  4  2  2  4  X  
 
 Esta ronda la pierde el jugador 4
 
 	--------------------
 
 
-Ronda 3
-Jugador #  1  (9)
-6  3  A  A  A  2  2  Q  Q  
-Jugador #  2  (10)
-5  J  J  K  9  Q  7  4  2  7  
-Jugador #  3  (9)
-4  6  2  K  9  7  8  8  A  
-Jugador #  4  (11)
-9  5  8  X  X  J  3  Q  J  8  4  
-Jugador #  5  (11)
-4  9  3  6  K  6  5  X  K  5  X  
-Cartas en la mesa (2)
-3  7  
+Ronda 2
+Jugador #  1  (0)
+
+Jugador #  2  (0)
+
+Jugador #  3  (0)
+
+Jugador #  4  (25)
+9  X  J  J  K  X  Q  9  5  K  7  7  6  Q  A  8  8  3  5  Q  4  4  9  K  6  
+Cartas en la mesa (27)
+2  X  8  9  5  J  5  7  8  6  3  3  3  2  7  A  X  4  2  2  4  Q  6  A  A  K  J  
 
 Esta ronda la pierde el jugador 3
 
 	--------------------
 
 
-Ronda 4
-Jugador #  1  (8)
-6  3  A  A  A  2  2  Q  
-Jugador #  2  (9)
-5  J  J  K  9  Q  7  4  2  
-Jugador #  3  (10)
-3  7  4  6  2  K  9  7  8  8  
-Jugador #  4  (10)
-9  5  8  X  X  J  3  Q  J  8  
-Jugador #  5  (10)
-4  9  3  6  K  6  5  X  K  5  
-Cartas en la mesa (5)
-7  A  4  X  Q  
-
-Esta ronda la pierde el jugador 2
-
-	--------------------
-
-
-Ronda 5
-Jugador #  1  (6)
-6  3  A  A  A  2  
-Jugador #  2  (11)
-7  A  4  X  Q  5  J  J  K  9  Q  
-Jugador #  3  (7)
-3  7  4  6  2  K  9  
-Jugador #  4  (7)
-9  5  8  X  X  J  3  
-Jugador #  5  (8)
-4  9  3  6  K  6  5  X  
-Cartas en la mesa (13)
-2  8  8  5  Q  4  8  J  K  2  7  7  Q  
-
-Esta ronda la pierde el jugador 1
-
-	--------------------
-
-
-Ronda 6
-Jugador #  1  (18)
-2  8  8  5  Q  4  8  J  K  2  7  7  Q  6  3  A  A  A  
-Jugador #  2  (10)
-7  A  4  X  Q  5  J  J  K  9  
-Jugador #  3  (6)
-3  7  4  6  2  K  
-Jugador #  4  (6)
-9  5  8  X  X  J  
-Jugador #  5  (6)
-4  9  3  6  K  6  
-Cartas en la mesa (6)
-X  2  Q  9  3  5  
-
-Esta ronda la pierde el jugador 5
-
-	--------------------
-
-
-Ronda 7
-Jugador #  1  (8)
-2  8  8  5  Q  4  8  J  
-Jugador #  2  (0)
-
-Jugador #  3  (0)
-
-Jugador #  4  (0)
-
-Jugador #  5  (3)
-X  2  Q  
-Cartas en la mesa (41)
-A  9  K  J  6  A  K  2  X  K  A  J  6  X  6  3  J  4  8  3  6  5  7  5  9  Q  Q  3  9  4  7  X  5  7  4  3  2  A  9  K  7  
-
-Esta ronda la pierde el jugador 4
-
-	--------------------
-
-
 Ronda final
-Jugador #  1  (8)
-2  8  8  5  Q  4  8  J  
+Jugador #  1  (0)
+
 Jugador #  2  (0)
 
-Jugador #  3  (0)
-
-Jugador #  4  (41)
-A  9  K  J  6  A  K  2  X  K  A  J  6  X  6  3  J  4  8  3  6  5  7  5  9  Q  Q  3  9  4  7  X  5  7  4  3  2  A  9  K  7  
-Jugador #  5  (3)
-X  2  Q  
+Jugador #  3  (27)
+2  X  8  9  5  J  5  7  8  6  3  3  3  2  7  A  X  4  2  2  4  Q  6  A  A  K  J  
+Jugador #  4  (25)
+9  X  J  J  K  X  Q  9  5  K  7  7  6  Q  A  8  8  3  5  Q  4  4  9  K  6  
 Cartas en la mesa (0)
 
-Empataron los jugadores  2 3
-Perdedor  4
+Empataron los jugadores  1 2
+Perdedor  3
 
 
-Número de hilos terminados:	5
+Número de hilos terminados:	4
 Termina ejecución de dealer
