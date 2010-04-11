@@ -18,7 +18,7 @@ void init_recursos_jugadores() {
   pthread_mutex_init( &manotazo , NULL );
   pthread_mutex_init( &poner_mano , NULL );
   pthread_mutex_init( &quitar_mano , NULL );
-	
+
   pthread_cond_init( &cond_poner_manos , NULL );
   pthread_cond_init( &cond_juego , NULL );
   pthread_cond_init( &cond_quitar_manos , NULL );
@@ -63,6 +63,7 @@ void * manos(void * param) {
     if( !fin_del_juego ){
 			
       if( cuenta_cartas[me] ){
+
 	carta_siguiente = ( carta_siguiente + 1 ) % CARTAS_EN_PINTA;
 	carta_a_poner = cartas_jugadores[me][cuenta_cartas[me] -1];
 	cartas[ cartas_centro ] = carta_a_poner;
@@ -92,7 +93,12 @@ void * manos(void * param) {
       if( ( cuenta_cartas[i] == 0 && cartas_centro == 0 ) || cartas_centro == 52 ){
 
 	pthread_mutex_lock ( &manotazo);
+	
+	pthread_mutex_lock( &mtx_juego );
 	fin_del_juego = 1;
+	pthread_cond_broadcast( &cond_fin_juego );
+	pthread_mutex_unlock( &mtx_juego );
+
 	poner_manos = 1;
 	pthread_mutex_unlock ( &manotazo);
 	pthread_cond_broadcast ( &cond_poner_manos );
@@ -100,7 +106,7 @@ void * manos(void * param) {
 	break;
       }
     }    
-		
+
     pthread_mutex_unlock( &mtx_jugadores[SIGUIENTE] ); //me #defined
 
   }
@@ -113,7 +119,7 @@ void * manos(void * param) {
 
 /*
  */
-void * ojos(void * param) {  
+void * ojos(void * param) {
   long me = (long) param;
 	
   while( !fin_del_juego ){
@@ -139,7 +145,12 @@ void * ojos(void * param) {
       int i;
       for(i=0; i < num_jugadores; ++i){
 	if( cuenta_cartas[i] == 0  ){
+	  
+	  pthread_mutex_lock( &mtx_juego );
 	  fin_del_juego = 1;
+	  pthread_cond_broadcast( &cond_fin_juego );
+	  pthread_mutex_unlock( &mtx_juego );
+
 	  //pthread_cond_broadcast( &cond_quitar_manos );
 	  //pthread_cond_broadcast( &cond_poner_manos );
 	  //break;
@@ -148,7 +159,6 @@ void * ojos(void * param) {
 			
     }
     pthread_mutex_unlock( &poner_mano );
-		
     pthread_mutex_unlock( &manotazo );
 
     pthread_mutex_lock( &quitar_mano );
@@ -156,7 +166,6 @@ void * ojos(void * param) {
 
     if( quitar_manos < num_jugadores ){
       pthread_cond_wait( &cond_quitar_manos ,&quitar_mano );
-		
     }else if (quitar_manos == num_jugadores) {
       quitar_manos = 0;
       pthread_cond_broadcast( &cond_quitar_manos );
@@ -166,7 +175,6 @@ void * ojos(void * param) {
     pthread_mutex_unlock( &quitar_mano );
 
   }
-	
   return NULL;
 }
 
@@ -185,7 +193,7 @@ void * tomar_cartas(long me) {
 	
   for(i=0; i < cuenta_cartas[me]; ++i)
     mazo_aux[cartas_centro + i] = cartas_jugadores[me][i];
-	
+
   cuenta_cartas[me] += cartas_centro;
   cartas_centro = 0;
 	
