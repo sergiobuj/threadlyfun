@@ -22,7 +22,8 @@ char jugadores_error[] = "Error al crear espacio para los jugadores\n";
 char mutex_error[] = "Error al crear los mutex de la ronda\n";
 char cartas_error[] = "Error al crear la mesa de juego\n";
 char cuenta_error[] = "Error al crear el contador de cartas de cada jugador\n";
-char modo_uso[] = "Modo ejecución:\t./dealer 2..52 [h | v]";
+char modo_uso[] = "Modo ejecución:\t./dealer #1 -v -j#2\n\t#1:Número jugadores\n\t#2Jugador que recibe carta primero\n";
+char jug_esp_err[] = "El jugador especificado para recibir de primero, no es válido\nDebe ser entre 1 y ";
 
 /* variables */
 char nombre_archivo[] = "resultados";
