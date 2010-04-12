@@ -6,17 +6,17 @@
 SRC = src/sb_*.c
 HEA = src/sb_*.h
 CC = gcc
-CFLAGS = -g -lpthread
+CFLAGS = -g
 FEDFLAGS = -g -lpthread -lc
 RM = rm -rf
 BIN = dealer
 
 $(BIN): $(SRC) $(HEA)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(FEDFLAGS)
 
-fedora: $(SRC) $(HEA)
-	$(CC) -o $(BIN) $^ $(FEDFLAGS)
+mac:	$(SRC) $(HEA)
+	$(CC) -o $(BIN) $^ $(CFLAGS)
 
 clean:
-	$(RM) $(BIN) $(BIN).dSYM
+	$(RM) $(BIN) $(BIN).dSYM resultados
 

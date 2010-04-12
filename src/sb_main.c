@@ -11,6 +11,9 @@
  */
 int main(int argc, char * argv[])
 {
+	vert_hor = 0;
+	jugador_especifico = 0;
+
 
 	if(argc > 1){
 		num_jugadores = atoi(argv[1]);

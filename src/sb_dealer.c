@@ -39,11 +39,16 @@ void barajar_cartas(int cartas[],int num_cartas) {
 /*
  */
 void repartir_cartas() {
-	int i,j,k;
+	int i, j, k, l, primero_recibir = 0;
 	for(i = 0; i < CARTAS ; ++i) cuenta_cartas[i] = 0;
 	
+	if( jugador_especifico )
+		primero_recibir = random_port( num_jugadores );
+	
 	for(j = 0,k = 0; j < CARTAS; ++j){
-		for(i = 0; i < num_jugadores; ++i){
+		for(l = 0; l < num_jugadores; ++l){
+			i = (primero_recibir + l )%num_jugadores;
+			
 			if(k < CARTAS){
 				cartas_jugadores[i][j] = cartas[k];
 				cartas[k] = NO_CARTA;

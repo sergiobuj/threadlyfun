@@ -35,6 +35,7 @@
 /* main */
 int fin_del_juego;
 int num_jugadores;
+int jugador_especifico;
 
 pthread_t * jugadores;
 
