@@ -46,7 +46,7 @@ void repartir_cartas() {
     primero_recibir = random_port( num_jugadores );
   else if( jugador_especifico == 0)
     primero_recibir = 0;
-  else if( jugador_especifico )
+  else if( jugador_especifico > 0)
     primero_recibir = jugador_especifico - 1 ;
   else
     primero_recibir = 0;
@@ -72,8 +72,6 @@ void repartir_cartas() {
  */
 void iniciar_juego(int jugador) {
   init_recursos_jugadores();
-	
-	
   int index = num_jugadores;
   while(index){
     --index;

@@ -152,9 +152,6 @@ void * ojos(void * param) {
 	  pthread_cond_broadcast( &cond_fin_juego );
 	  pthread_mutex_unlock( &mtx_juego );
 
-	  //pthread_cond_broadcast( &cond_quitar_manos );
-	  //pthread_cond_broadcast( &cond_poner_manos );
-	  //break;
 	}
       }
 			
