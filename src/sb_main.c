@@ -287,7 +287,7 @@ void liberar_recursos(){
 	
   free( jugadores );
   free( cartas_jugadores );
-	
+
 #ifdef __APPLE__
   //puts("I'm darwin and I free");
   free( mtx_jugadores );
@@ -312,6 +312,3 @@ int random_port( int rand_max){
 
 
 }
-
-
-

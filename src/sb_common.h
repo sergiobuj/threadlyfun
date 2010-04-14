@@ -8,7 +8,6 @@
 #define _COMMON_H 1
 
 #ifndef __APPLE__
-#include <sys/libkern.h>
 #include <sys/types.h>
 #include <sys/user.h>
 #include <sys/ipc.h>
