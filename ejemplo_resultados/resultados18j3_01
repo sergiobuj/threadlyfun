@@ -1,0 +1,181 @@
+==PrÃ¡ctica Manotazo Sistemas Operativos 2010-1
+==Sergio Botero
+Ronda inicial
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	
+|	Q	5	3	K	 	 	2	7	K	3	9	K	Q	J	8	4	X	J	
+|	5	Q	8	3	Q	7	6	2	4	2	A	9	X	6	J	X	A	7	
+|	3	9	6	8	7	9	8	K	5	5	X	2	4	A	6	J	A	4	
+|	(3)	(3)	(3)	(3)	(2)	(2)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	(3)	
+|	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	J#9	J#10	J#11	J#12	J#13	J#14	J#15	J#16	J#17	J#18	
+Cartas en la mesa (0)
+
+Primero en Jugar: 5
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+no con
+
+	--------------------
+
+
+Ronda 1
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	
+|	3	9	6	8	 	 	 	 	 	 	 	 	 	A	6	J	A	4	
+|	(1)	(1)	(1)	(1)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(1)	(1)	(1)	(1)	(1)	
+|	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	J#9	J#10	J#11	J#12	J#13	J#14	J#15	J#16	J#17	J#18	
+Cartas en la mesa (43)
+Q  7  2  7  K  3  9  K  Q  J  8  4  X  J  Q  5  3  K  7  9  6  2  4  2  A  9  X  6  J  X  A  7  5  Q  8  3  8  K  5  5  X  2  4  
+
+Esta ronda la pierde el jugador 14
+
+	--------------------
+
+
+Ronda 1
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	6	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	6	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	3	9	6	8	 	 	 	 	 	 	 	 	 	Q	6	J	A	4	
+|	(1)	(1)	(1)	(1)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(44)	(1)	(1)	(1)	(1)	
+|	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	J#9	J#10	J#11	J#12	J#13	J#14	J#15	J#16	J#17	J#18	
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda final
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	6	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	A	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	6	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	5	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	X	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	4	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	8	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	J	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	Q	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	9	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	3	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	K	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	2	 	 	 	 	
+|	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	
+|	3	9	6	8	 	 	 	 	 	 	 	 	 	Q	6	J	A	4	
+|	(1)	(1)	(1)	(1)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(0)	(44)	(1)	(1)	(1)	(1)	
+|	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	J#9	J#10	J#11	J#12	J#13	J#14	J#15	J#16	J#17	J#18	
+Cartas en la mesa (0)
+
+Empataron los jugadores  5 6 7 8 9 10 11 12 13
+Perdedor  14
+
+
+Número de hilos terminados:	18
+Termina ejecución de dealer
