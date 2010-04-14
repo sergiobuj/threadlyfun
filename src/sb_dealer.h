@@ -11,6 +11,7 @@
 /* mensajes */
 char fin_juego[] = "Termina ejecución de dealer\n";
 char fin_hilos[] = "Número de hilos terminados:";
+char primero_jugar[] = "Primero en Jugar:";
 
 /* errores */
 char crear_error[] = "Error al crear un jugador\n";

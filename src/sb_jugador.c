@@ -15,6 +15,7 @@ void init_recursos_jugadores() {
   quitar_manos = 0;
   manos_en_centro = 0;
   cartas_recogidas = 0;
+  perdedor_pasado = -1;
 	
   pthread_mutex_init( &manotazo , NULL );
   pthread_mutex_init( &poner_mano , NULL );
@@ -81,7 +82,7 @@ void * manos(void * param) {
 	  pthread_cond_broadcast ( &cond_poner_manos );
 	  pthread_cond_wait ( &cond_juego , &manotazo );
 	  pthread_mutex_unlock ( &manotazo );
-
+          imprimir_juego( ronda_jugada -1 );
 	}
       }
 			
@@ -108,7 +109,11 @@ void * manos(void * param) {
       }
     }    
 
-    pthread_mutex_unlock( &mtx_jugadores[SIGUIENTE] ); //me #defined
+    if(perdedor_pasado == -1)
+      pthread_mutex_unlock( &mtx_jugadores[SIGUIENTE] ); //me #defined
+    else 
+      pthread_mutex_unlock( &mtx_jugadores[perdedor_pasado] ); //me #defined
+    perdedor_pasado = -1;
 
   }
 
@@ -139,6 +144,7 @@ void * ojos(void * param) {
     ++manos_en_centro;
     if( manos_en_centro == num_jugadores ){
       tomar_cartas(me);
+      perdedor_pasado = me;
       manos_en_centro = 0;
       poner_manos = 0;
       cartas_recogidas = 1;		

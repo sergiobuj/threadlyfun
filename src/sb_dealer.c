@@ -83,7 +83,9 @@ void iniciar_juego(int jugador) {
   comprar_baraja( cartas );
   barajar_cartas( cartas , CARTAS  );
   repartir_cartas();
+
   imprimir_juego( 0 );
+  fprintf(stdout, "%s %d\n",primero_jugar, jugador + 1);
   poner_jugadores();
   pthread_mutex_unlock( &mtx_jugadores[jugador] );
 }

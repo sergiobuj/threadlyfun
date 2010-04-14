@@ -22,6 +22,7 @@ int poner_manos;
 int quitar_manos;
 int cartas_recogidas;
 int manos_en_centro;
+int perdedor_pasado;
 pthread_mutex_t manotazo;
 pthread_mutex_t poner_mano;
 pthread_mutex_t quitar_mano;
