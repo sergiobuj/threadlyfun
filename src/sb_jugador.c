@@ -146,6 +146,7 @@ void * ojos(void * param) {
         tomar_cartas(me);
         imprimir_juego( ronda_jugada );
         perdedor_pasado = me;
+        carta_siguiente = -1;
         manos_en_centro = 0;
         poner_manos = 0;		
         ++ronda_jugada;
