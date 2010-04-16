@@ -14,7 +14,6 @@ int main(int argc, char * argv[])
   vert_hor = 0;
   jugador_especifico = 0;
 
-
   if(argc > 1){
     num_jugadores = atoi(argv[1]);
     if( num_jugadores < 2 || num_jugadores > 52 ){
@@ -123,7 +122,6 @@ void init_recursos() {
     exit( EXIT_FAILURE );
   }
   cuenta_cartas = (int *)cuenta_cartas_ptr;
-
 
 }
 
@@ -244,8 +242,6 @@ char valor_carta(int karta){
 }
 
 
-
-
 /*
  */
 void imprimir_juego(int ronda) {
@@ -309,6 +305,5 @@ int random_port( int rand_max){
   return random()%rand_max;
 
 #endif
-
 
 }

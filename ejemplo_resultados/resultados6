@@ -1,0 +1,363 @@
+==PrÃ¡ctica Manotazo Sistemas Operativos 2010-1
+==Sergio Botero
+Ronda inicial
+Jugador #  1  (9)
+X  Q  6  8  5  4  6  A  2  
+Jugador #  2  (9)
+7  J  J  7  2  9  8  K  9  
+Jugador #  3  (9)
+A  K  A  4  4  X  5  8  Q  
+Jugador #  4  (9)
+A  7  J  5  7  X  3  X  4  
+Jugador #  5  (8)
+9  3  3  Q  2  K  2  3  
+Jugador #  6  (8)
+Q  K  J  6  8  6  9  5  
+Cartas en la mesa (0)
+
+Primero en Jugar: 4
+
+	--------------------
+
+
+Ronda 1
+Jugador #  1  (8)
+X  Q  6  8  5  4  6  A  
+Jugador #  2  (8)
+7  J  J  7  2  9  8  K  
+Jugador #  3  (8)
+A  K  A  4  4  X  5  8  
+Jugador #  4  (7)
+A  7  J  5  7  X  3  
+Jugador #  5  (6)
+9  3  3  Q  2  K  
+Jugador #  6  (6)
+Q  K  J  6  8  6  
+Cartas en la mesa (9)
+4  3  5  2  9  Q  X  2  9  
+
+Esta ronda la pierde el jugador 4
+
+	--------------------
+
+
+Ronda 1
+Jugador #  1  (8)
+X  Q  6  8  5  4  6  A  
+Jugador #  2  (8)
+7  J  J  7  2  9  8  K  
+Jugador #  3  (8)
+A  K  A  4  4  X  5  8  
+Jugador #  4  (16)
+4  3  5  2  9  Q  X  2  9  A  7  J  5  7  X  3  
+Jugador #  5  (6)
+9  3  3  Q  2  K  
+Jugador #  6  (6)
+Q  K  J  6  8  6  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 2
+Jugador #  1  (6)
+X  Q  6  8  5  4  
+Jugador #  2  (7)
+7  J  J  7  2  9  8  
+Jugador #  3  (7)
+A  K  A  4  4  X  5  
+Jugador #  4  (14)
+4  3  5  2  9  Q  X  2  9  A  7  J  5  7  
+Jugador #  5  (4)
+9  3  3  Q  
+Jugador #  6  (4)
+Q  K  J  6  
+Cartas en la mesa (10)
+3  K  6  A  K  8  X  2  8  6  
+
+Esta ronda la pierde el jugador 6
+
+	--------------------
+
+
+Ronda 2
+Jugador #  1  (6)
+X  Q  6  8  5  4  
+Jugador #  2  (7)
+7  J  J  7  2  9  8  
+Jugador #  3  (7)
+A  K  A  4  4  X  5  
+Jugador #  4  (14)
+4  3  5  2  9  Q  X  2  9  A  7  J  5  7  
+Jugador #  5  (4)
+9  3  3  Q  
+Jugador #  6  (14)
+3  K  6  A  K  8  X  2  8  6  Q  K  J  6  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 3
+Jugador #  1  (5)
+X  Q  6  8  5  
+Jugador #  2  (6)
+7  J  J  7  2  9  
+Jugador #  3  (6)
+A  K  A  4  4  X  
+Jugador #  4  (13)
+4  3  5  2  9  Q  X  2  9  A  7  J  5  
+Jugador #  5  (3)
+9  3  3  
+Jugador #  6  (13)
+3  K  6  A  K  8  X  2  8  6  Q  K  J  
+Cartas en la mesa (6)
+6  4  8  5  7  Q  
+
+Esta ronda la pierde el jugador 6
+
+	--------------------
+
+
+Ronda 3
+Jugador #  1  (5)
+X  Q  6  8  5  
+Jugador #  2  (6)
+7  J  J  7  2  9  
+Jugador #  3  (6)
+A  K  A  4  4  X  
+Jugador #  4  (13)
+4  3  5  2  9  Q  X  2  9  A  7  J  5  
+Jugador #  5  (3)
+9  3  3  
+Jugador #  6  (19)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  6  Q  K  J  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 4
+Jugador #  1  (3)
+X  Q  6  
+Jugador #  2  (4)
+7  J  J  7  
+Jugador #  3  (4)
+A  K  A  4  
+Jugador #  4  (11)
+4  3  5  2  9  Q  X  2  9  A  7  
+Jugador #  5  (1)
+9  
+Jugador #  6  (16)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  6  
+Cartas en la mesa (13)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  
+
+Esta ronda la pierde el jugador 5
+
+	--------------------
+
+
+Ronda 4
+Jugador #  1  (3)
+X  Q  6  
+Jugador #  2  (4)
+7  J  J  7  
+Jugador #  3  (4)
+A  K  A  4  
+Jugador #  4  (11)
+4  3  5  2  9  Q  X  2  9  A  7  
+Jugador #  5  (14)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  9  
+Jugador #  6  (16)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  6  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 5
+Jugador #  1  (2)
+X  Q  
+Jugador #  2  (3)
+7  J  J  
+Jugador #  3  (3)
+A  K  A  
+Jugador #  4  (11)
+4  3  5  2  9  Q  X  2  9  A  7  
+Jugador #  5  (13)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  
+Jugador #  6  (15)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  
+Cartas en la mesa (5)
+9  6  6  7  4  
+
+Esta ronda la pierde el jugador 2
+
+	--------------------
+
+
+Ronda 5
+Jugador #  1  (2)
+X  Q  
+Jugador #  2  (8)
+9  6  6  7  4  7  J  J  
+Jugador #  3  (3)
+A  K  A  
+Jugador #  4  (11)
+4  3  5  2  9  Q  X  2  9  A  7  
+Jugador #  5  (13)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  
+Jugador #  6  (15)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 6
+Jugador #  1  (2)
+X  Q  
+Jugador #  2  (7)
+9  6  6  7  4  7  J  
+Jugador #  3  (2)
+A  K  
+Jugador #  4  (10)
+4  3  5  2  9  Q  X  2  9  A  
+Jugador #  5  (13)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  
+Jugador #  6  (15)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  
+Cartas en la mesa (3)
+J  A  7  
+
+Esta ronda la pierde el jugador 3
+
+	--------------------
+
+
+Ronda 6
+Jugador #  1  (2)
+X  Q  
+Jugador #  2  (7)
+9  6  6  7  4  7  J  
+Jugador #  3  (5)
+J  A  7  A  K  
+Jugador #  4  (10)
+4  3  5  2  9  Q  X  2  9  A  
+Jugador #  5  (13)
+J  5  9  X  5  3  K  8  2  4  J  3  Q  
+Jugador #  6  (15)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  8  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 7
+Jugador #  1  (1)
+X  
+Jugador #  2  (7)
+9  6  6  7  4  7  J  
+Jugador #  3  (4)
+J  A  7  A  
+Jugador #  4  (9)
+4  3  5  2  9  Q  X  2  9  
+Jugador #  5  (12)
+J  5  9  X  5  3  K  8  2  4  J  3  
+Jugador #  6  (14)
+6  4  8  5  7  Q  3  K  6  A  K  8  X  2  
+Cartas en la mesa (5)
+K  A  Q  8  Q  
+
+Esta ronda la pierde el jugador 6
+
+	--------------------
+
+
+Ronda 7
+Jugador #  1  (1)
+X  
+Jugador #  2  (7)
+9  6  6  7  4  7  J  
+Jugador #  3  (4)
+J  A  7  A  
+Jugador #  4  (9)
+4  3  5  2  9  Q  X  2  9  
+Jugador #  5  (12)
+J  5  9  X  5  3  K  8  2  4  J  3  
+Jugador #  6  (19)
+K  A  Q  8  Q  6  4  8  5  7  Q  3  K  6  A  K  8  X  2  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda 8
+Jugador #  1  (0)
+
+Jugador #  2  (5)
+9  6  6  7  4  
+Jugador #  3  (3)
+J  A  7  
+Jugador #  4  (8)
+4  3  5  2  9  Q  X  2  
+Jugador #  5  (11)
+J  5  9  X  5  3  K  8  2  4  J  
+Jugador #  6  (17)
+K  A  Q  8  Q  6  4  8  5  7  Q  3  K  6  A  K  8  
+Cartas en la mesa (8)
+2  X  J  A  9  3  X  7  
+
+Esta ronda la pierde el jugador 3
+
+	--------------------
+
+
+Ronda 8
+Jugador #  1  (0)
+
+Jugador #  2  (5)
+9  6  6  7  4  
+Jugador #  3  (11)
+2  X  J  A  9  3  X  7  J  A  7  
+Jugador #  4  (8)
+4  3  5  2  9  Q  X  2  
+Jugador #  5  (11)
+J  5  9  X  5  3  K  8  2  4  J  
+Jugador #  6  (17)
+K  A  Q  8  Q  6  4  8  5  7  Q  3  K  6  A  K  8  
+Cartas en la mesa (0)
+
+
+	--------------------
+
+
+Ronda final
+Jugador #  1  (0)
+
+Jugador #  2  (5)
+9  6  6  7  4  
+Jugador #  3  (11)
+2  X  J  A  9  3  X  7  J  A  7  
+Jugador #  4  (8)
+4  3  5  2  9  Q  X  2  
+Jugador #  5  (11)
+J  5  9  X  5  3  K  8  2  4  J  
+Jugador #  6  (17)
+K  A  Q  8  Q  6  4  8  5  7  Q  3  K  6  A  K  8  
+Cartas en la mesa (0)
+
+Gana el jugador  1
+Perdedor  6
+
+
+Número de hilos terminados:	6
+Termina ejecución de dealer

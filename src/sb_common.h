@@ -6,7 +6,7 @@
 
 #ifndef _COMMON_H
 #define _COMMON_H 1
-
+/*
 #ifndef __APPLE__
 #include <sys/types.h>
 #include <sys/user.h>
@@ -14,7 +14,7 @@
 #include <sys/sem.h>
 #include <sys/shm.h>
 #endif
-
+*/
 #include <pthread.h>
 #include <unistd.h>
 #include <stdlib.h>

@@ -104,12 +104,13 @@ void * manos(void * param) {
       }
     }    
 		
-    if(perdedor_pasado == -1)
+    if(perdedor_pasado == -1){
       pthread_mutex_unlock( &mtx_jugadores[SIGUIENTE] ); //me #defined
-    else 
+    } else {
       pthread_mutex_unlock( &mtx_jugadores[perdedor_pasado] ); //me #defined
-    perdedor_pasado = -1;
-		
+      perdedor_pasado = -1;
+    }
+
   }
 	
   pthread_join( los_ojos , NULL );

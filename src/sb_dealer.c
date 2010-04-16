@@ -123,17 +123,20 @@ void poner_jugadores() {
  */
 void quitar_jugadores(int index) {
   int i = index;
-  while( index )
+  while( index ){
     pthread_mutex_unlock( &mtx_jugadores[--index] );
-	
+  }
+  
   void * estado_join;
   int join_index;
   for(join_index = 0 ; join_index < num_jugadores ; ++join_index){
     pthread_join( jugadores[join_index], &estado_join );
   }
   fprintf(stdout, "\n%s\t%d\n", fin_hilos, join_index );
-	
-  while( i ) pthread_mutex_destroy( &mtx_jugadores[--i] );
-	
-}
+  
+  while( i ){
+    pthread_mutex_unlock( &mtx_jugadores[--i] );
+    pthread_mutex_destroy( &mtx_jugadores[i] );
+  }
 
+}
