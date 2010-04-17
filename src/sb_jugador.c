@@ -87,7 +87,7 @@ void * manos(void * param) {
 		
     int i;
     for( i = 0; i < num_jugadores; ++i){
-      if( ( cuenta_cartas[i] == 0 && cartas_centro == 0 ) || cartas_centro == 52 ){
+      if( ( cuenta_cartas[i] == 0 && cartas_centro == 0 ) || cartas_centro == CARTAS ){
 				
         pthread_mutex_lock ( &manotazo);
 				

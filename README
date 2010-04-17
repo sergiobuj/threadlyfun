@@ -1,16 +1,77 @@
 threadly fun mtzo
+Simulación del juego de cartas Manotazo para la práctica de sistemas operativos 2010-1 universidad EAFIT.
 
+El proyecto contiene 7 archivos en la carpeta `src/':
 sb_common.h
-
+sb_main.{h|c}
 sb_jugador.{h|c}
-
 sb_dealer.{h|c}
-int main(int, char *[]);	**
+
+Para compilar el proyecto se tiene un Makefile con las opciones `mac' para compilar con opciones para Darwin y `clean'
+para eliminar el ejecutable y los archivos de soporte para inspección del código. Para compilar con las opciones de
+Linux se ejecuta el comando `make' en el directorio donde se encuentra el archivo `makefile':
+         $ make
+
+Luego de una compilación exitosa se crea el ejecutable `dealer', que recibe como parámetros de ejecución el número de
+jugadores con los que se simulará el manotazo. Un ejemplo una ejecución corriente es:
+         $ ./dealer 7
+Que simulará el manotazo con 7 jugadores y el resumen de la simulación se tendrá en el archivo `resultados'.
+
+Adicionalmente se tiene una opción de ejecución que modifica la forma en que el archivo `resultados' se escribe.
+La opción `-v' muestra las cartas de los jugadores de forma vertical, simulando la pila de cartas. ejm.
+         $ ./dealer 8 -v
+Genera un impresión como la siguiente:
+
+        Ronda inicial
+        |	 	 	 	 	 	 	 	 	
+        |	6	4	5	5	 	 	 	 	
+        |	J	2	K	6	5	8	J	8	
+        |	2	3	Q	6	X	7	X	X	
+        |	8	3	9	4	X	K	A	9	
+        |	3	6	2	7	7	Q	A	A	
+        |	8	9	5	J	4	Q	2	4	
+        |	A	7	J	9	K	K	Q	3	
+        |	(7)	(7)	(7)	(7)	(6)	(6)	(6)	(6)	
+        |	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	
+        Cartas en la mesa (0)
+       
+para cada ronda.
+
+Cuando se reparten las cartas a los jugadores en un juego de manotazo siempre se hace en orden, esto le da
+a los primeros jugadores una desventaja porque si el número de jugadores no divide el número de cartas de forma exacta
+siempre tendrán una carta de más. Una segunda opción de compilación da la posibilidad de cambiar esto, sea para que
+se inicie a repartir las cartas a un jugador de forma aleatoria o a un jugador en especial.
+         $ ./dealer 8 -v -j5
+Produce lo siguiente:
+
+        Ronda inicial
+        |	 	 	 	 	 	 	 	 	
+        |	 	 	 	 	6	X	K	3	
+        |	9	2	3	K	5	X	2	8	
+        |	4	5	8	4	4	2	6	9	
+        |	7	Q	X	J	A	5	K	3	
+        |	6	8	Q	3	J	A	X	7	
+        |	J	5	7	Q	K	A	9	J	
+        |	Q	A	4	2	9	7	6	8	
+        |	(6)	(6)	(6)	(6)	(7)	(7)	(7)	(7)	
+        |	J#1	J#2	J#3	J#4	J#5	J#6	J#7	J#8	
+        Cartas en la mesa (0)
+        
+Donde se nota que las cartas se repartieron tomando como primer jugador al jugador número 5.
+Para que se inicie en un jugador de forma aleatoria se deja indicada la opción.
+        $ ./dealer 8 -v -j
+
+
+Asuntos por corregir.
+Cuando se compila el código completo para ejecutar en Linux se reciben dos errores en dos liberaciones de recursos;
+un SIGSEGV al liberar los recursos de un arreglo de mutex y también se obtiene y un `abort' con un arreglo de enteros.
+Dos cuestiones a las que todavía no se les ha encontrado la razón.
 
 http://irc.essex.ac.uk/www.iota-six.co.uk/c/f7_dynamic_memory_allocation.asp
 http://www.cs.cf.ac.uk/Dave/C/node31.html#SECTION003100000000000000000
 https://computing.llnl.gov/tutorials/pthreads/exercise.html
 C Interfaces and Implementations: Techniques for Creating Reusable Software
+
 
 Mac Terminal
 i=0; for y in 52 2 3 4 5; do ./dealer $y ; mv resultados resultados$i ; open resultados$i ; let ++i ; done

@@ -23,12 +23,12 @@
 #include <stdio.h>
 #include <time.h>
 
-#define BARAJAS 1
-#define PINTAS 4
-#define CARTAS_EN_PINTA 13
-#define NO_CARTA -1
-#define CARTAS 52 * BARAJAS
-#define MILLISEG_MAX 500
+#define BARAJAS (1) // tested with up to 15
+#define PINTAS (4)
+#define CARTAS_EN_PINTA (13)
+#define NO_CARTA (-1)
+#define CARTAS (52 * BARAJAS)
+#define MILLISEG_MAX (500)
 
 
 /* main */
