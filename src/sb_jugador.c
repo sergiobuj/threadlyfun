@@ -210,12 +210,21 @@ void * tomar_cartas(long me) {
   fprintf( stdout , "%s %ld\n" , jugador_pierde , me + 1 );
   int mazo_aux[CARTAS], i;
   for(i=0; i < CARTAS; ++i ) mazo_aux[i] = NO_CARTA;
-	
-  for(i=0; i < cartas_centro; ++i){
+
+  /* Se recogen las cartas de la mesa y la que está más arriba queda después de las que se tienen.
+    for(i=0; i < cartas_centro; ++i){
     mazo_aux[i] = cartas[i];
     cartas[i] = NO_CARTA;
+    }
+  */
+
+  /* Se recogen las cartas de la mesa y la que está más arriba queda en el fondo. */
+  for(i=0; i < cartas_centro; ++i){
+    mazo_aux[cartas_centro - i -1] = cartas[i];
+    cartas[i] = NO_CARTA;
   }
-	
+  /***/
+
   for(i=0; i < cuenta_cartas[me]; ++i)
     mazo_aux[cartas_centro + i] = cartas_jugadores[me][i];
 	
