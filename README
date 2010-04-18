@@ -76,5 +76,6 @@ C Interfaces and Implementations: Techniques for Creating Reusable Software
 Mac Terminal
 i=0; for y in 52 2 3 4 5; do ./dealer $y ; mv resultados resultados$i ; open resultados$i ; let ++i ; done
 
+
 Linux Terminal
 i=0; for y in 52 2 3 4 5; do ./dealer $y ; mv resultados resultados$i ; gedit resultados$i ; let ++i ; done
