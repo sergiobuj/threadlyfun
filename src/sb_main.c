@@ -13,8 +13,11 @@ int main(int argc, char * argv[])
 {
   vert_hor = 0;
   jugador_especifico = 0;
-
-  if(argc > 1){
+  
+  if(argc == 1){
+    fprintf(stderr, "%s",modo_uso);
+    exit( EXIT_FAILURE );
+  }else if(argc > 1){
     num_jugadores = atoi(argv[1]);
     if( num_jugadores < 2 || num_jugadores > 52 ){
       fprintf(stderr, "%s" , numero_inv );
