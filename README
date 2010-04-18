@@ -1,6 +1,7 @@
 threadly fun mtzo
 Simulación del juego de cartas Manotazo para la práctica de sistemas operativos 2010-1 universidad EAFIT.
 
+
 El proyecto contiene 7 archivos en la carpeta `src/':
 sb_common.h
 sb_main.{h|c}
